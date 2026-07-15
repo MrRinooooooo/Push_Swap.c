@@ -18,9 +18,12 @@ typedef struct s_list
 // flags.c
 void    flags_set_zero(int flags[]);
 void    set_flags(int flags[], int i);
-void    n_flags(int flags[], int argc, char *argv[]);
+void    flags_parser(int flags[], int argc, char *argv[]);
+int     flags_num(int flags[]);
 // errors_checker.c
 void    print_error();
+// parser.c
+int *int_arr_parser(int argc, char *argv[], int flags_n);
 // strings_utils.c
 int 	ps_strlen(char  *s1);
 int		ps_strcmp(const char *s1, const char *s2);
