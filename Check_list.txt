@@ -1,0 +1,7 @@
+[] - 1 check flag
+[] - 1 check argv
+[] - 1 atoi -> int array
+[] - 1 int array -> calcolo disordine + dupe check
+[] - 1 inserimento lista A
+[] - 1 Sorting
+[] - 1 Bench
