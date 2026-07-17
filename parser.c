@@ -25,3 +25,18 @@ int *int_arr_parser(int argc, char *argv[], int flags_n)
     }
     return (arr);
 }
+
+t_list  *list_arg_parser(int arr[], int size)
+{
+    t_list *stack;
+    t_list *new_node;
+
+    stack = NULL;
+    while (size > 0)
+    {  
+        size--;
+        new_node = ft_lstnew(arr[size]);
+        ft_lstadd_front(&stack, new_node);
+    }
+    return (stack);
+}
