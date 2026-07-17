@@ -11,10 +11,14 @@ int main(int argc, char *argv[])
     stack_a = NULL;
     stack_b = NULL;
 
+    if (argc == 1)
+        return (0);
     flags_set_zero(flags);
     flags_parser(flags, argc, argv);
     int_arr = int_arr_parser(argc, argv, flags_num(flags));
-    stack_a = list_arg_parser(int_arr, 3);
+    stack_a = list_arg_parser(int_arr, 2);
+    print_stack(stack_a);
+    free_stack(&stack_a);
     print_stack(stack_a);
     /*
     errors_checker(int argc, char *argv[], int flags);

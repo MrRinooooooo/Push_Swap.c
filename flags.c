@@ -28,8 +28,8 @@ void    flags_parser(int flags[], int argc, char *argv[])
 {
     int i;
 
-    i = 1;
-    while (i <= 2)
+    i = 0;
+    while (i <= 2 && i < argc)
     {
         if (argv[i][0] == '-' && argv[i][1] == '-')
         {

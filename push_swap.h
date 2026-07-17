@@ -25,6 +25,7 @@ void    print_error();
 // parser.c
 int 	*int_arr_parser(int argc, char *argv[], int flags_n);
 t_list	*list_arg_parser(int arr[], int size);
+void    free_stack(t_list **stack);
 // strings_utils.c
 int 	ps_strlen(char  *s1);
 int		ps_strcmp(const char *s1, const char *s2);

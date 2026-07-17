@@ -40,3 +40,21 @@ t_list  *list_arg_parser(int arr[], int size)
     }
     return (stack);
 }
+
+void    free_stack(t_list **stack)
+{
+    t_list *next_node;
+
+    if (!stack || !*stack)
+        return;
+    /*
+    if (*stack->next)
+        next_node = *stack->next;
+    */
+    while (*stack)
+	{
+		next_node = (*stack)->next;
+		free(*stack);
+        *stack = next_node;
+	}
+}
