@@ -35,6 +35,8 @@ t_list	*ft_lstnew(int value);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	print_stack(t_list *lst);
 // push_swap_functions.c
+int sa(t_list **lst);
+int sb(t_list **lst);
 // rotate_functions.c
 // reverse_rotate_functions.c
 // alg_simple.c
