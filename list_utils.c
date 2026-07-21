@@ -22,6 +22,18 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 		*lst = new;
 	}
 }
+
+void	lstdelfirst(t_list **lst)
+{
+	t_list *first;
+
+	if (!lst || !*lst)
+		return ;
+	first = *lst;
+	*lst = (*lst)->next;
+	free(first);
+}
+
 // FOR DEBUG
 void	print_stack(t_list *lst)
 {

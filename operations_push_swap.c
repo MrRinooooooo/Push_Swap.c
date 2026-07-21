@@ -42,4 +42,6 @@ int sb(t_list **lst)
 
 //ss
 //pa
+//int pa(t_list **stack_a, t_list **stack_b)
+
 //pb
