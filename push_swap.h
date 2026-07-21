@@ -31,15 +31,21 @@ int 	ps_strlen(char  *s1);
 int		ps_strcmp(const char *s1, const char *s2);
 int		atoi_safe(const char *str);
 // list_utils.c
-t_list	*ft_lstnew(int value);
-void	ft_lstadd_front(t_list **lst, t_list *new);
+t_list	*ps_lstnew(int value);
+void	ps_lstadd_front(t_list **lst, t_list *new);
+void	ps_lstdelfirst(t_list **lst);
 void	print_stack(t_list *lst);
-void	lstdelfirst(t_list **lst);
 // push_swap_functions.c
 int sa(t_list **lst);
 int sb(t_list **lst);
+int pa(t_list **stack_a, t_list **stack_b);
+int pb(t_list **stack_b, t_list **stack_a);
 // rotate_functions.c
+int ra(t_list **stack_a);
+int rb(t_list **stack_b);
 // reverse_rotate_functions.c
+int rra(t_list **stack_a);
+int rrb(t_list **stack_b);
 // alg_simple.c
 // alg_medium.c
 // alg_complex.c

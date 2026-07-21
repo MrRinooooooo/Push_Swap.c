@@ -8,7 +8,7 @@ int *int_arr_parser(int argc, char *argv[], int flags_n)
 
     i = 0;
     arr_len = argc - flags_n - 1;
-    printf("CIAO3.1\n");
+    //printf("CIAO3.1\n");
     arr = malloc(sizeof(int) * arr_len);
     /*if(!arr)
     {
@@ -18,7 +18,7 @@ int *int_arr_parser(int argc, char *argv[], int flags_n)
 
     while (i < arr_len)
     {
-        printf("CIAO3.2\n");
+        //printf("CIAO3.2\n");
         arr[i] =  atoi_safe(argv[flags_n + 1]);
         i++;
         flags_n++;
@@ -35,8 +35,8 @@ t_list  *list_arg_parser(int arr[], int size)
     while (size > 0)
     {  
         size--;
-        new_node = ft_lstnew(arr[size]);
-        ft_lstadd_front(&stack, new_node);
+        new_node = ps_lstnew(arr[size]);
+        ps_lstadd_front(&stack, new_node);
     }
     return (stack);
 }

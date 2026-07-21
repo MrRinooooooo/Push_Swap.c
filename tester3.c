@@ -16,17 +16,31 @@ int main(int argc, char *argv[])
     flags_set_zero(flags);
     flags_parser(flags, argc, argv);
     int_arr = int_arr_parser(argc, argv, flags_num(flags));
-    stack_a = list_arg_parser(int_arr, 2);
+    stack_a = list_arg_parser(int_arr, 5);
+    printf("\nSTACK A INIZIALE:\n");
     print_stack(stack_a);
+    printf("\nMOSSE:\n");
     //free_stack(&stack_a);
-    sa(&stack_a);
-    sa(&stack_a);
+    //sa(&stack_a);
+    //sa(&stack_a);
     //DEBUG
-    int count_a;
-    count_a = sa(&stack_a);
-    lstdelfirst(&stack_b);
+    //int count_a;
+    //count_a = sa(&stack_a);
+    //ps_lstdelfirst(&stack_b);
+    //pb(&stack_b, &stack_a);
+    rra(&stack_a);
+    printf("\nSTACK A:\n");
     print_stack(stack_a);
-    printf("\n SA: %i", count_a);
+    printf("\nSTACK B:\n");
+    print_stack(stack_b);
+    printf("\nFREE STACKS:\n");
+    free_stack(&stack_a);
+    free_stack(&stack_b);
+    printf("\nSTACK A:\n");
+    print_stack(stack_a);
+    printf("\nSTACK B:\n");
+    print_stack(stack_b);
+    //printf("\n SA: %i", count_a);
     /*
     errors_checker(int argc, char *argv[], int flags);
     arg_parser(int argc, char *argv[]);

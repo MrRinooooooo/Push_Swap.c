@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_list	*ft_lstnew(int value)
+t_list	*ps_lstnew(int value)
 {
 	t_list	*new_node;
 
@@ -12,7 +12,7 @@ t_list	*ft_lstnew(int value)
 	return (new_node);
 }
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+void	ps_lstadd_front(t_list **lst, t_list *new)
 {
 	if (!new)
 		return ;
@@ -23,7 +23,7 @@ void	ft_lstadd_front(t_list **lst, t_list *new)
 	}
 }
 
-void	lstdelfirst(t_list **lst)
+void	ps_lstdelfirst(t_list **lst)
 {
 	t_list *first;
 
