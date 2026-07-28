@@ -8,6 +8,16 @@ typedef struct s_list
 	struct s_list	*next;
 }					t_list;
 
+typedef struct s_alg_vars
+{
+	int     chunk_size;
+    int     chunk_min;
+    int     chunk_max;
+    int     chunk_to_push;
+    int     a_size;
+    int     b_size;
+}					t_vars;
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
@@ -53,6 +63,9 @@ int rra(t_list **stack_a);
 int rrb(t_list **stack_b);
 // alg_simple.c
 // alg_medium.c
+void	exec_medium(t_list **stack_a, t_list **stack_b, int size);
+int		calculate_chunk(int size);
+void	init_vars(t_vars *vars, int size);
 // alg_complex.c
 // alg_adaptive.c
 
