@@ -4,8 +4,19 @@
 typedef struct s_list
 {
 	int				value;
+	int				rank;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct s_alg_vars
+{
+	int     chunk_size;
+    int     chunk_min;
+    int     chunk_max;
+    int     chunk_to_push;
+    int     a_size;
+    int     b_size;
+}					t_vars;
 
 # include <stdlib.h>
 # include <unistd.h>
@@ -24,17 +35,21 @@ int     flags_num(int flags[]);
 void    print_error();
 // parser.c
 int 	*int_arr_parser(int argc, char *argv[], int flags_n);
+void	assign_rank(int *arr, int *rank_arr, int size);
 t_list	*list_arg_parser(int arr[], int size);
 void    free_stack(t_list **stack);
+// disorder.c
+float	compute_disorder(int array[], int arraylen);
 // strings_utils.c
 int 	ps_strlen(char  *s1);
 int		ps_strcmp(const char *s1, const char *s2);
 int		atoi_safe(const char *str);
 // list_utils.c
-t_list	*ps_lstnew(int value);
+t_list	*ps_lstnew(int value, int rank);
 void	ps_lstadd_front(t_list **lst, t_list *new);
 void	ps_lstdelfirst(t_list **lst);
 void	print_stack(t_list *lst);
+void	print_stack_rank(t_list *lst);
 // push_swap_functions.c
 int sa(t_list **lst);
 int sb(t_list **lst);
@@ -48,6 +63,9 @@ int rra(t_list **stack_a);
 int rrb(t_list **stack_b);
 // alg_simple.c
 // alg_medium.c
+void	exec_medium(t_list **stack_a, t_list **stack_b, int size);
+int		calculate_chunk(int size);
+void	init_vars(t_vars *vars, int size);
 // alg_complex.c
 // alg_adaptive.c
 
