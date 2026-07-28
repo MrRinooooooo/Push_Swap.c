@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-t_list	*ps_lstnew(int value)
+t_list	*ps_lstnew(int value, int rank)
 {
 	t_list	*new_node;
 
@@ -8,6 +8,7 @@ t_list	*ps_lstnew(int value)
 	if (!new_node)
 		return (NULL);
 	new_node->value = value;
+	new_node->rank = rank;
 	new_node->next = NULL;
 	return (new_node);
 }
@@ -40,6 +41,15 @@ void	print_stack(t_list *lst)
 	while (lst)
 	{
 		printf("%d\n", lst->value);
+		lst = lst->next;
+	}
+}
+
+void	print_stack_rank(t_list *lst)
+{
+	while (lst)
+	{
+		printf("Value: %d\t\tRank: %d\n", lst->value, lst->rank);
 		lst = lst->next;
 	}
 }
