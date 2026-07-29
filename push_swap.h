@@ -62,6 +62,8 @@ int rb(t_list **stack_b);
 int rra(t_list **stack_a);
 int rrb(t_list **stack_b);
 // alg_simple.c
+void    simple_sort(t_list **a, t_list **b);
+
 // alg_medium.c
 void	exec_medium(t_list **stack_a, t_list **stack_b, int size);
 int		calculate_chunk(int size);

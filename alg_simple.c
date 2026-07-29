@@ -92,7 +92,7 @@ void simple_sort(t_list **a, t_list **b)
     while (*a != NULL)
     {
         move_to_top(a);
-        pb(a, b);
+        pb(b, a);
     }
     while (*b != NULL)
         pa(a, b);

@@ -21,7 +21,7 @@ int rra(t_list **stack_a)
     //printf("penultimo = %i", com->value);
     //printf("last value = %i", last_a->value);
     
-    write(1, "rra\n", 3);
+    write(1, "rra\n", 4);
     return (rra_count);
 }
 //rrb
@@ -46,7 +46,7 @@ int rrb(t_list **stack_b)
     //printf("penultimo = %i", com->value);
     //printf("last value = %i", last_a->value);
     
-    write(1, "rrb\n", 3);
+    write(1, "rrb\n", 4);
     return (rrb_count);
 }
 //rrr

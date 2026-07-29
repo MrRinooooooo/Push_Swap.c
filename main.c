@@ -21,14 +21,19 @@ int main(int argc, char *argv[])
     disorder = compute_disorder(int_arr, size);
     stack_a = list_arg_parser(int_arr, size);
     print_stack(stack_a);
+    printf("\n");
+    simple_sort(&stack_a, &stack_b);
+    printf("\nstack_a:\n");
+    print_stack(stack_a);
+    printf("\nstack_b:\n");
+    print_stack(stack_b);
+    printf("\n");
     //free_stack(&stack_a);
-    sa(&stack_a);
-    sa(&stack_a);
-    //DEBUG
+    /*DEBUG
     int count_a;
     count_a = sa(&stack_a);
     print_stack_rank(stack_a);
-    printf("\n SA: %i", count_a);
+    printf("\n SA: %i", count_a);*/
     /*
     errors_checker(int argc, char *argv[], int flags);
     arg_parser(int argc, char *argv[]);

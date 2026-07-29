@@ -13,6 +13,7 @@ int ra(t_list **stack_a)
     first_a = *stack_a;
     second_a = (*stack_a)->next;
     
+    node = *stack_a;
     while (node->next)
         node = node->next;
 
