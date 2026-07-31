@@ -18,70 +18,97 @@ typedef struct s_alg_vars
     int     b_size;
 }					t_vars;
 
+typedef struct s_counters
+{// strings_utils.c
+int 	ps_strlen(char  *s1);
+int		ps_strcmp(const char *s1, const char *s2);
+int		atoi_safe(const char *str);
+	int     sa;
+    int     sb;
+    int     ss;
+    int     pa;
+    int     pb;
+    int     ra;
+    int     rb;
+    int     rr;
+    int     rra;
+    int     rrb;
+    int     rrr;
+}					t_count;
+
 # include <stdlib.h>
 # include <unistd.h>
 # include <fcntl.h>
 # include <stddef.h>
-# include <limits.h>    // atoi_safe
+# include <limits.h>
 // TESTING
 # include <stdio.h>
 
-// flags.c
-void    flags_set_zero(int flags[]);
-void    set_flags(int flags[], int i);
-void    flags_parser(int flags[], int argc, char *argv[]);
-int     flags_num(int flags[]);
-// errors_checker.c
-void    print_error();
-// parser.c
-int 	*int_arr_parser(int argc, char *argv[], int flags_n);
-void	assign_rank(int *arr, int *rank_arr, int size);
-t_list	*list_arg_parser(int arr[], int size);
-void    free_stack(t_list **stack);
-// disorder.c
-float	compute_disorder(int array[], int arraylen);
-// strings_utils.c
-int 	ps_strlen(char  *s1);
-int		ps_strcmp(const char *s1, const char *s2);
-int		atoi_safe(const char *str);
-// list_utils.c
-t_list	*ps_lstnew(int value, int rank);
-void	ps_lstadd_front(t_list **lst, t_list *new);
-void	ps_lstdelfirst(t_list **lst);
-// push_swap_functions.c
-int     sa(t_list **lst);
-int     sb(t_list **lst);
-int     pa(t_list **stack_a, t_list **stack_b);
-int     pb(t_list **stack_b, t_list **stack_a);
-// rotate_functions.c
-int     ra(t_list **stack_a);
-int     rb(t_list **stack_b);
-// reverse_rotate_functions.c
-int     rra(t_list **stack_a);
-int     rrb(t_list **stack_b);
-// alg_simple.c
-void    simple_sort(t_list **a, t_list **b);
-int     is_sorted(t_list *stack);
-void    move_to_top(t_list **a);
-int     find_min_index(t_list *stack);
-int     stack_size(t_list *stack);
-// alg_medium.c
-void	exec_medium(t_list **stack_a, t_list **stack_b, int size);
-void	init_vars(t_vars *vars, int size);
-int		calculate_chunk(int size);
+// alg_adaptive.c
+// alg_complex.c
 // alg_medium_utils.c
 int     find_min_index_chunk(t_list *stack, t_vars *vars);
 void    move_to_top_chunk(t_list **stack_a, t_vars *vars);
 int    	find_max_index(t_list *stack);
 void 	move_to_top_b(t_list **, t_vars *vars);
 void    update_vars(t_vars *vars, int size);
-// alg_complex.c
-// alg_adaptive.c
+// alg_medium.c
+void	exec_medium(t_list **stack_a, t_list **stack_b, int size);
+void	init_vars(t_vars *vars, int size);
+int		calculate_chunk(int size);
+// alg_simple.c
+void    simple_sort(t_list **a, t_list **b);
+int     is_sorted(t_list *stack);
+void    move_to_top(t_list **a);
+int     find_min_index(t_list *stack);
+int     stack_size(t_list *stack);
+// bench.c
+void    print_bench(t_count count, float disorder, int *flags, char *strategy);
+void    print_disorder(float disorder);
+void    print_strategy(int *flags, char *strategy);
 // debugger.c
 void	print_stack(t_list *lst);
 void	print_stack_rank(t_list *lst);
 void    print_vars(t_vars *vars);
-
+// disorder.c
+float	compute_disorder(int array[], int arraylen);
+// errors_checker.c
+void    print_error();
+// flags.c
+void    flags_set_zero(int flags[]);
+void    set_flags(int flags[], int i);
+void    flags_parser(int flags[], int argc, char *argv[]);
+int     flags_num(int flags[]);
+// list_utils.c
+t_list	*ps_lstnew(int value, int rank);
+void	ps_lstadd_front(t_list **lst, t_list *new);
+void	ps_lstdelfirst(t_list **lst);
+// operations_push_swap.c
+int     sa(t_list **lst);
+int     sb(t_list **lst);
+int     pa(t_list **stack_a, t_list **stack_b);
+int     pb(t_list **stack_b, t_list **stack_a);
+// operations_reverse_rotate.c
+int     rra(t_list **stack_a);
+int     rrb(t_list **stack_b);
+// operations_rotate.c
+int     ra(t_list **stack_a);
+int     rb(t_list **stack_b);
+// parser.c
+int 	*int_arr_parser(int argc, char *argv[], int flags_n);
+void	assign_rank(int *arr, int *rank_arr, int size);
+t_list	*list_arg_parser(int arr[], int size);
+void    free_stack(t_list **stack);
+// printf_stderr.c
+int     printf_stderr(const char *s, ...);
+int     ft_handle_format(char c, va_list args);
+int     ft_putunbr(unsigned int n);
+int     ft_putchar(char c);
+int     ft_putstr(char *s);
+// strings_utils.c
+int 	ps_strlen(char  *s1);
+int		ps_strcmp(const char *s1, const char *s2);
+int		atoi_safe(const char *str);
 // ------------------------------------------- BONUS
 /*
 // get_next_line.c

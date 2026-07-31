@@ -9,6 +9,7 @@ SRCS		= alg_adaptive.c \
 			  alg_simple.c \
 			  alg_medium.c \
 			  alg_medium_utils.c \
+			  bench.c \
 			  debugger.c \
 			  disorder.c \
 			  errors_checker.c \
@@ -19,6 +20,7 @@ SRCS		= alg_adaptive.c \
 			  operations_reverse_rotate.c \
 			  operations_rotate.c \
 			  parser.c \
+			  printf_stderr.c \
 			  strings_utils.c
 
 #alg_medium.c 
