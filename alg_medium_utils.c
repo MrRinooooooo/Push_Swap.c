@@ -22,7 +22,7 @@ int    find_min_index_chunk(t_list *stack, t_vars *vars)
     return (min_pos);
 }
 
-void move_to_top_chunk(t_list **stack_a, t_vars *vars)
+void move_to_top_chunk(t_list **stack_a, t_vars *vars, t_count *count)
 {
     int min_pos;
     int moves;
@@ -32,7 +32,7 @@ void move_to_top_chunk(t_list **stack_a, t_vars *vars)
     {
         while (min_pos > 0)
         {
-            ra(stack_a);
+            ra(stack_a, count);
             min_pos--;
         }
     }
@@ -41,7 +41,7 @@ void move_to_top_chunk(t_list **stack_a, t_vars *vars)
         moves = vars->a_size - min_pos;
         while (moves > 0)
         {
-            rra(stack_a);
+            rra(stack_a, count);
             moves--;
         }
     }
@@ -71,7 +71,7 @@ int     find_max_index(t_list *stack)
     return (max_pos);
 }
 
-void    move_to_top_b(t_list **b, t_vars *vars)
+void    move_to_top_b(t_list **b, t_vars *vars, t_count *count)
 {
     int max_pos;
     int moves;
@@ -81,7 +81,7 @@ void    move_to_top_b(t_list **b, t_vars *vars)
     {
         while (max_pos > 0)
         {
-            rb(b);
+            rb(b, count);
             max_pos--;
         }
     }
@@ -90,7 +90,7 @@ void    move_to_top_b(t_list **b, t_vars *vars)
         moves = vars->b_size - max_pos;
         while (moves > 0)
         {
-            rrb(b);
+            rrb(b, count);
             moves--;
         }
     }

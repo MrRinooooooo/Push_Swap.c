@@ -8,7 +8,7 @@
     int     a_size;
     int     b_size;*/
 
-void    exec_medium(t_list **stack_a, t_list **stack_b, int size)
+void    exec_medium(t_list **stack_a, t_list **stack_b, int size, t_count *count)
 {
     t_vars  vars;
     int     i;
@@ -17,14 +17,14 @@ void    exec_medium(t_list **stack_a, t_list **stack_b, int size)
     while (*stack_a != NULL)
     {
         i = find_min_index_chunk(*stack_a, &vars);
-        move_to_top_chunk(stack_a, &vars);
-        pb(stack_b, stack_a);
+        move_to_top_chunk(stack_a, &vars, count);
+        pb(stack_b, stack_a, count);
         update_vars(&vars, size);
     }
     while (vars.b_size > 0)
     {
-	    move_to_top_b(stack_b, &vars);
-        pa(stack_a, stack_b);
+	    move_to_top_b(stack_b, &vars, count);
+        pa(stack_a, stack_b, count);
         vars.a_size++;
         vars.b_size--;
     }

@@ -45,12 +45,12 @@ typedef struct s_counters
 // alg_complex.c
 // alg_medium_utils.c
 int     find_min_index_chunk(t_list *stack, t_vars *vars);
-void    move_to_top_chunk(t_list **stack_a, t_vars *vars);
+void    move_to_top_chunk(t_list **stack_a, t_vars *vars, t_count *count);
 int    	find_max_index(t_list *stack);
-void 	move_to_top_b(t_list **, t_vars *vars);
+void    move_to_top_b(t_list **b, t_vars *vars, t_count *count);
 void    update_vars(t_vars *vars, int size);
 // alg_medium.c
-void	exec_medium(t_list **stack_a, t_list **stack_b, int size);
+void    exec_medium(t_list **stack_a, t_list **stack_b, int size, t_count *count);
 void	init_vars(t_vars *vars, int size);
 int		calculate_chunk(int size);
 // alg_simple.c
