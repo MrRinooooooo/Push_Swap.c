@@ -56,7 +56,7 @@ int	atoi_safe(const char *str)
 		}
 		else
 		{
-			if (result > ((unsigned int)INT_MAX + 1 - digit) / 10)
+			if ((unsigned int)result > ((unsigned int)INT_MAX + 1 - digit) / 10)
 				print_error();
 		}
 		result = result * 10 + digit;

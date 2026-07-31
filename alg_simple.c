@@ -1,43 +1,34 @@
 #include "push_swap.h"
 
-int stack_size(t_list *stack)
+void simple_sort(t_list **a, t_list **b)
 {
-    int     size;
-    t_list  *current;
-
-    size = 0;
-    current = stack;
-
-    while (current != NULL)
+    if (is_sorted(*a))
+        return;
+    while (*a != NULL)
     {
-        size++;
-        current = current->next;
+        move_to_top(a);
+        pb(b, a);
     }
-    return (size);
+    while (*b != NULL)
+        pa(a, b);
 }
 
-int    find_min_index(t_list *stack)
+int is_sorted(t_list *stack)
 {
-    int min;
-    int min_pos;
-    int pos;
     t_list *current;
+    
+    if (stack == NULL || stack->next == NULL)
+        return (1);
 
-    min = stack->value;
-    min_pos = 0;
-    pos = 0;
     current = stack;
     while (current->next != NULL)
     {
+        if (current->value > current->next->value)
+            return (0);
+
         current = current->next;
-        pos++;
-        if (current->value < min)
-        {
-            min = current->value;
-            min_pos = pos;
-        }
     }
-    return (min_pos);
+    return (1);
 }
 
 void move_to_top(t_list **a)
@@ -67,33 +58,42 @@ void move_to_top(t_list **a)
     }
 }
 
-int is_sorted(t_list *stack)
+int    find_min_index(t_list *stack)
 {
+    int min;
+    int min_pos;
+    int pos;
     t_list *current;
-    
-    if (stack == NULL || stack->next == NULL)
-        return (1);
 
+    min = stack->value;
+    min_pos = 0;
+    pos = 0;
     current = stack;
     while (current->next != NULL)
     {
-        if (current->value > current->next->value)
-            return (0);
-
         current = current->next;
+        pos++;
+        if (current->value < min)
+        {
+            min = current->value;
+            min_pos = pos;
+        }
     }
-    return (1);
+    return (min_pos);
 }
 
-void simple_sort(t_list **a, t_list **b)
+int stack_size(t_list *stack)
 {
-    if (is_sorted(*a))
-        return;
-    while (*a != NULL)
+    int     size;
+    t_list  *current;
+
+    size = 0;
+    current = stack;
+
+    while (current != NULL)
     {
-        move_to_top(a);
-        pb(b, a);
+        size++;
+        current = current->next;
     }
-    while (*b != NULL)
-        pa(a, b);
+    return (size);
 }

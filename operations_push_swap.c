@@ -36,7 +36,7 @@ int sb(t_list **lst)
 
     //sb_count = 0;
     sb_count++;
-    write(1, "sa\n", 3);
+    write(1, "sb\n", 3);
     return (sb_count);
 }
 
@@ -53,7 +53,6 @@ int pa(t_list **stack_a, t_list **stack_b)
     first_b = *stack_b;
     second_b = (*stack_b)->next;
     ps_lstadd_front(stack_a, first_b);
-    //ps_lstdelfirst(stack_b);
     *stack_b = second_b;
 
     write(1, "pa\n", 3);
@@ -69,10 +68,9 @@ int pb(t_list **stack_b, t_list **stack_a)
     t_list *first_b;
 
     first_a = *stack_a;
-    second_a = (*stack_a)->next;
     first_b = *stack_b;
+    second_a = (*stack_a)->next;
     ps_lstadd_front(stack_b, first_a);
-    //ps_lstdelfirst(stack_a);
     *stack_a = second_a;
     
     write(1, "pb\n", 3);
