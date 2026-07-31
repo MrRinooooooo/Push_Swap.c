@@ -84,16 +84,16 @@ t_list	*ps_lstnew(int value, int rank);
 void	ps_lstadd_front(t_list **lst, t_list *new);
 void	ps_lstdelfirst(t_list **lst);
 // operations_push_swap.c
-int     sa(t_list **lst);
-int     sb(t_list **lst);
-int     pa(t_list **stack_a, t_list **stack_b);
-int     pb(t_list **stack_b, t_list **stack_a);
+void    sa(t_list **lst, t_count *count);
+void    sb(t_list **lst, t_count *count);
+void    pa(t_list **stack_a, t_list **stack_b, t_count *count);
+void    pb(t_list **stack_b, t_list **stack_a, t_count *count);
 // operations_reverse_rotate.c
-int     rra(t_list **stack_a);
-int     rrb(t_list **stack_b);
+void    rra(t_list **stack_a, t_count *count);
+void    rrb(t_list **stack_b, t_count *count);
 // operations_rotate.c
-int     ra(t_list **stack_a);
-int     rb(t_list **stack_b);
+void    ra(t_list **stack_a, t_count *count);
+void    rb(t_list **stack_b, t_count *count);
 // parser.c
 int 	*int_arr_parser(int argc, char *argv[], int flags_n);
 void	assign_rank(int *arr, int *rank_arr, int size);

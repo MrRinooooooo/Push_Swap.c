@@ -1,50 +1,36 @@
 #include "push_swap.h"
 
-int sa(t_list **lst)
+void    sa(t_list **lst, t_count *count)
 {
-    static int sa_count;
-    t_list *temp;
+    t_list  *temp;
     
     if (!lst || !*lst || !(*lst)->next)
         return (0);
     temp = (*lst)->next;
 	(*lst)->next = temp->next;
     ps_lstadd_front(lst, temp);
-
-    //sa_count = 0;
-    sa_count++;
+    count->sa++;
     write(1, "sa\n", 3);
-    return(sa_count);
 }
 
-int sb(t_list **lst)
+void    sb(t_list **lst, t_count *count)
 {
-    static int sb_count;
-
     t_list  *first;
     t_list  *second;
 
     if (!lst || !*lst || !(*lst)->next)
         return (0);
-
     first = *lst;
     second = first->next;
-
     first->next = second->next;
     second->next = first;
     *lst = second;
-
-    //sb_count = 0;
-    sb_count++;
+    count->sb++;
     write(1, "sb\n", 3);
-    return (sb_count);
 }
 
-//ss
-//pa
-int pa(t_list **stack_a, t_list **stack_b)
+void    pa(t_list **stack_a, t_list **stack_b, t_count *count)
 {
-    static int  pa_count;
     t_list *first_a;
     t_list *first_b;
     t_list *second_b;
@@ -54,15 +40,12 @@ int pa(t_list **stack_a, t_list **stack_b)
     second_b = (*stack_b)->next;
     ps_lstadd_front(stack_a, first_b);
     *stack_b = second_b;
-
+    count->pa++;
     write(1, "pa\n", 3);
-    return (pa_count);
 }
-//pb
 
-int pb(t_list **stack_b, t_list **stack_a)
+void    pb(t_list **stack_b, t_list **stack_a, t_count *count)
 {
-    static int  pb_count;
     t_list *first_a;
     t_list *second_a;
     t_list *first_b;
@@ -72,7 +55,6 @@ int pb(t_list **stack_b, t_list **stack_a)
     second_a = (*stack_a)->next;
     ps_lstadd_front(stack_b, first_a);
     *stack_a = second_a;
-    
+    count->pb++;
     write(1, "pb\n", 3);
-    return (pb_count);
 }

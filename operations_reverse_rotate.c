@@ -1,16 +1,13 @@
 #include "push_swap.h"
-//rra
-int rra(t_list **stack_a)
+
+void    rra(t_list **stack_a, t_count *count)
 {
-    static int  rra_count;
     t_list *last_a;
     t_list *com;
 
     if (!stack_a || !*stack_a)
         return (0);
-
     last_a = *stack_a;
-    
     while (last_a->next)
     {
         com = last_a;
@@ -18,24 +15,18 @@ int rra(t_list **stack_a)
     }
     com->next = NULL;
     ps_lstadd_front(stack_a, last_a);
-    //printf("penultimo = %i", com->value);
-    //printf("last value = %i", last_a->value);
-    
+    count->rra++;
     write(1, "rra\n", 4);
-    return (rra_count);
 }
-//rrb
-int rrb(t_list **stack_b)
+
+void    rrb(t_list **stack_b, t_count *count)
 {
-    static int  rrb_count;
     t_list *last_b;
     t_list *com;
 
     if (!stack_b || !*stack_b)
         return (0);
-
     last_b = *stack_b;
-    
     while (last_b->next)
     {
         com = last_b;
@@ -43,10 +34,6 @@ int rrb(t_list **stack_b)
     }
     com->next = NULL;
     ps_lstadd_front(stack_b, last_b);
-    //printf("penultimo = %i", com->value);
-    //printf("last value = %i", last_a->value);
-    
+    count->rrb++;    
     write(1, "rrb\n", 4);
-    return (rrb_count);
 }
-//rrr
