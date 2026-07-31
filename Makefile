@@ -2,11 +2,12 @@
 NAME		= push_swap
  
 CC			= cc
-CFLAGS		= -g # -Wall -Wextra -Werror
+CFLAGS		= -g # -Wall -Wextra -Werror -ggdb
  
 SRCS		= alg_adaptive.c \
 			  alg_complex.c \
 			  alg_simple.c \
+			  alg_medium.c \
 			  disorder.c \
 			  errors_checker.c \
 			  flags.c \

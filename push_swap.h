@@ -68,6 +68,12 @@ void    simple_sort(t_list **a, t_list **b);
 void	exec_medium(t_list **stack_a, t_list **stack_b, int size);
 int		calculate_chunk(int size);
 void	init_vars(t_vars *vars, int size);
+int     find_min_index_chunk(t_list *stack, t_vars *vars);
+void    move_to_top_chunk(t_list **stack_a, t_vars *vars);
+void    print_vars(t_vars *vars);
+int    	find_max_index(t_list *stack);
+void 	move_to_top_b(t_list **b);
+void    update_vars(t_vars *vars, int size);
 // alg_complex.c
 // alg_adaptive.c
 

@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
     t_list      *stack_b;
     float       disorder;
     int         size;
+    t_vars      vars;
 
     stack_a = NULL;
     stack_b = NULL;
@@ -18,21 +19,26 @@ int main(int argc, char *argv[])
     flags_parser(flags, argc, argv);
     int_arr = int_arr_parser(argc, argv, flags_num(flags));
     size = argc - flags_num(flags) - 1;
-    printf("\nSIZE = %d\n", size);
     disorder = compute_disorder(int_arr, size);
-    printf("\nSIZE2 = %d\n", size);
     stack_a = list_arg_parser(int_arr, size);
-    printf("\nSIZE3 = %d\n", size);
-    print_stack_rank(stack_a);
+
+
+    int com;
+    init_vars(&vars, size);
+    com = find_min_index_chunk(stack_a, &vars);
+    printf("%d", com);
+
+
+    /*
+    print_stack(stack_a);
     printf("\n");
-    //simple_sort(&stack_a, &stack_b);
-    printf("\nSIZE4 = %d\n", size);
-    exec_medium(&stack_a, &stack_b, size);
+    simple_sort(&stack_a, &stack_b);
     printf("\nstack_a:\n");
-    print_stack_rank(stack_a);
+    print_stack(stack_a);
     printf("\nstack_b:\n");
-    print_stack_rank(stack_b);
+    print_stack(stack_b);
     printf("\n");
+    */
     //free_stack(&stack_a);
     /*DEBUG
     int count_a;

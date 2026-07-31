@@ -37,6 +37,7 @@ int rb(t_list **stack_b)
     first_b = *stack_b;
     second_b = (*stack_b)->next;
     
+    node = *stack_b;
     while (node->next)
         node = node->next;
 
