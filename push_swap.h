@@ -22,7 +22,7 @@ typedef struct s_alg_vars
 # include <unistd.h>
 # include <fcntl.h>
 # include <stddef.h>
-#include <limits.h>    // atoi_safe
+# include <limits.h>    // atoi_safe
 // TESTING
 # include <stdio.h>
 
@@ -48,35 +48,39 @@ int		atoi_safe(const char *str);
 t_list	*ps_lstnew(int value, int rank);
 void	ps_lstadd_front(t_list **lst, t_list *new);
 void	ps_lstdelfirst(t_list **lst);
-void	print_stack(t_list *lst);
-void	print_stack_rank(t_list *lst);
 // push_swap_functions.c
-int sa(t_list **lst);
-int sb(t_list **lst);
-int pa(t_list **stack_a, t_list **stack_b);
-int pb(t_list **stack_b, t_list **stack_a);
+int     sa(t_list **lst);
+int     sb(t_list **lst);
+int     pa(t_list **stack_a, t_list **stack_b);
+int     pb(t_list **stack_b, t_list **stack_a);
 // rotate_functions.c
-int ra(t_list **stack_a);
-int rb(t_list **stack_b);
+int     ra(t_list **stack_a);
+int     rb(t_list **stack_b);
 // reverse_rotate_functions.c
-int rra(t_list **stack_a);
-int rrb(t_list **stack_b);
+int     rra(t_list **stack_a);
+int     rrb(t_list **stack_b);
 // alg_simple.c
 void    simple_sort(t_list **a, t_list **b);
-
+int     is_sorted(t_list *stack);
+void    move_to_top(t_list **a);
+int     find_min_index(t_list *stack);
+int     stack_size(t_list *stack);
 // alg_medium.c
 void	exec_medium(t_list **stack_a, t_list **stack_b, int size);
-int		calculate_chunk(int size);
 void	init_vars(t_vars *vars, int size);
+int		calculate_chunk(int size);
+// alg_medium_utils.c
 int     find_min_index_chunk(t_list *stack, t_vars *vars);
 void    move_to_top_chunk(t_list **stack_a, t_vars *vars);
-void    print_vars(t_vars *vars);
 int    	find_max_index(t_list *stack);
-void 	move_to_top_b(t_list **b);
+void 	move_to_top_b(t_list **, t_vars *vars);
 void    update_vars(t_vars *vars, int size);
 // alg_complex.c
 // alg_adaptive.c
-
+// debugger.c
+void	print_stack(t_list *lst);
+void	print_stack_rank(t_list *lst);
+void    print_vars(t_vars *vars);
 
 // ------------------------------------------- BONUS
 /*

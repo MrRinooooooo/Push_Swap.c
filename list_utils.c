@@ -34,22 +34,3 @@ void	ps_lstdelfirst(t_list **lst)
 	*lst = (*lst)->next;
 	free(first);
 }
-
-// FOR DEBUG
-void	print_stack(t_list *lst)
-{
-	while (lst)
-	{
-		printf("%d\n", lst->value);
-		lst = lst->next;
-	}
-}
-
-void	print_stack_rank(t_list *lst)
-{
-	while (lst)
-	{
-		printf("Value: %d\t\tRank: %d\n", lst->value, lst->rank);
-		lst = lst->next;
-	}
-}
