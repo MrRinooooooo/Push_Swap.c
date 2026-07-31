@@ -48,12 +48,10 @@ void    print_strategy(int *flags, char *strategy)
     if (flags[1] == 1)
     {
         printf_stderr("Simple / ");                   // O(n^2)
-    }else if
-    if (flags[2] == 1)
+    }else if (flags[2] == 1)
     {
         printf_stderr("Medium / ");                   // O(n sqrt 2)
-    }else if
-    if (flags[3] == 1)
+    }else if (flags[3] == 1)
     {
         printf_stderr("Complex / ");                  // O(n log 2)
     }else
@@ -61,4 +59,19 @@ void    print_strategy(int *flags, char *strategy)
         printf_stderr("Adaptive / ");
     }
     printf_stderr("%s", strategy);
+}
+
+void    init_counts(t_count *count)
+{
+    count->sa = 0;
+    count->sb = 0;
+    count->ss = 0;
+    count->pa = 0;
+    count->pb = 0;
+    count->ra = 0;
+    count->rb = 0;
+    count->rr = 0;
+    count->rra = 0;
+    count->rrb = 0;
+    count->rrr = 0;
 }

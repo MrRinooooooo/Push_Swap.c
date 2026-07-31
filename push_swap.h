@@ -19,10 +19,7 @@ typedef struct s_alg_vars
 }					t_vars;
 
 typedef struct s_counters
-{// strings_utils.c
-int 	ps_strlen(char  *s1);
-int		ps_strcmp(const char *s1, const char *s2);
-int		atoi_safe(const char *str);
+{
 	int     sa;
     int     sb;
     int     ss;
@@ -57,15 +54,16 @@ void	exec_medium(t_list **stack_a, t_list **stack_b, int size);
 void	init_vars(t_vars *vars, int size);
 int		calculate_chunk(int size);
 // alg_simple.c
-void    simple_sort(t_list **a, t_list **b);
+void    simple_sort(t_list **a, t_list **b, t_count *count);
 int     is_sorted(t_list *stack);
-void    move_to_top(t_list **a);
+void    move_to_top(t_list **a, t_count *count);
 int     find_min_index(t_list *stack);
 int     stack_size(t_list *stack);
 // bench.c
 void    print_bench(t_count count, float disorder, int *flags, char *strategy);
 void    print_disorder(float disorder);
 void    print_strategy(int *flags, char *strategy);
+void    init_counts(t_count *count);
 // debugger.c
 void	print_stack(t_list *lst);
 void	print_stack_rank(t_list *lst);

@@ -8,6 +8,7 @@ int main(int argc, char *argv[])
     t_list      *stack_b;
     float       disorder;
     int         size;
+    t_count     count;
 
     stack_b = NULL;
     if (argc == 1)
@@ -18,8 +19,10 @@ int main(int argc, char *argv[])
     size = argc - flags_num(flags) - 1;
     disorder = compute_disorder(int_arr, size);
     stack_a = list_arg_parser(int_arr, size);
-    //simple_sort(&stack_a, &stack_b);
-    exec_medium(&stack_a, &stack_b, size);
+    init_counts(&count);
+    simple_sort(&stack_a, &stack_b, &count);
+    print_bench(count, disorder, flags, "O(n^2)");
+    //exec_medium(&stack_a, &stack_b, size);
     
     //RICORDARSI DI SOSTITUIRE TUTTI I PRINTF!!!!!!!!!!!!!
     //RICORDASI FREE(INT_ARRAY) E FREE(stack)

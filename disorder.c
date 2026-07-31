@@ -25,6 +25,6 @@ float   compute_disorder(int array[], int arraylen)
         }
         i++;
     }
-    disorder = mistakes / total_pairs;
+    disorder = (float)mistakes / (float)total_pairs;
     return (disorder);
 }

@@ -7,7 +7,7 @@ void ra(t_list **stack_a, t_count *count)
     t_list *node;
 
     if (!stack_a || !*stack_a)
-        return (0);
+        return ;
     first_a = *stack_a;
     second_a = (*stack_a)->next;
     node = *stack_a;
@@ -27,7 +27,7 @@ void rb(t_list **stack_b, t_count *count)
     t_list *node;
 
     if (!stack_b || !*stack_b)
-        return (0);
+        return ;
     first_b = *stack_b;
     second_b = (*stack_b)->next;   
     node = *stack_b;

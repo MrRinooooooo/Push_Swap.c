@@ -6,7 +6,7 @@ void    rra(t_list **stack_a, t_count *count)
     t_list *com;
 
     if (!stack_a || !*stack_a)
-        return (0);
+        return ;
     last_a = *stack_a;
     while (last_a->next)
     {
@@ -25,7 +25,7 @@ void    rrb(t_list **stack_b, t_count *count)
     t_list *com;
 
     if (!stack_b || !*stack_b)
-        return (0);
+        return ;
     last_b = *stack_b;
     while (last_b->next)
     {
