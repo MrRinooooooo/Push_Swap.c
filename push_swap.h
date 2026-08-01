@@ -38,10 +38,13 @@ typedef struct s_counters
 # include <fcntl.h>
 # include <stddef.h>
 # include <limits.h>
+# include <stdarg.h>
 // TESTING
 # include <stdio.h>
 
 // alg_adaptive.c
+void	alg_selector(int *flags, int *int_arr, t_list **stack_a, t_list **stack_b, int size);
+char	*adaptive_sort(float disorder, int *flags);
 // alg_complex.c
 // alg_medium_utils.c
 int     find_min_index_chunk(t_list *stack, t_vars *vars);
@@ -50,7 +53,7 @@ int    	find_max_index(t_list *stack);
 void    move_to_top_b(t_list **b, t_vars *vars, t_count *count);
 void    update_vars(t_vars *vars, int size);
 // alg_medium.c
-void    exec_medium(t_list **stack_a, t_list **stack_b, int size, t_count *count);
+void    medium_sort(t_list **stack_a, t_list **stack_b, int size, t_count *count);
 void	init_vars(t_vars *vars, int size);
 int		calculate_chunk(int size);
 // alg_simple.c
@@ -68,6 +71,7 @@ void    init_counts(t_count *count);
 void	print_stack(t_list *lst);
 void	print_stack_rank(t_list *lst);
 void    print_vars(t_vars *vars);
+void	print_flags(int *flags);
 // disorder.c
 float	compute_disorder(int array[], int arraylen);
 // errors_checker.c

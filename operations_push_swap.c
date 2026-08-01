@@ -3,7 +3,7 @@
 void    sa(t_list **lst, t_count *count)
 {
     t_list  *temp;
-    
+
     if (!lst || !*lst || !(*lst)->next)
         return ;
     temp = (*lst)->next;
@@ -31,13 +31,11 @@ void    sb(t_list **lst, t_count *count)
 
 void    pa(t_list **stack_a, t_list **stack_b, t_count *count)
 {
-    t_list *first_a;
     t_list *first_b;
     t_list *second_b;
 
     if (!stack_b || !*stack_b)
         return ;
-    first_a = *stack_a; 
     first_b = *stack_b;
     second_b = (*stack_b)->next;
     ps_lstadd_front(stack_a, first_b);
@@ -50,12 +48,10 @@ void    pb(t_list **stack_b, t_list **stack_a, t_count *count)
 {
     t_list *first_a;
     t_list *second_a;
-    t_list *first_b;
 
     if (!stack_a || !*stack_a)
         return ;
     first_a = *stack_a;
-    first_b = *stack_b;
     second_a = (*stack_a)->next;
     ps_lstadd_front(stack_b, first_a);
     *stack_a = second_a;

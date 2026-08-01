@@ -34,7 +34,7 @@ void    flags_parser(int flags[], int argc, char *argv[])
         if (argv[i][0] == '-' && argv[i][1] == '-')
         {
             if (ps_strcmp(argv[i], "--bench") == 0)
-                set_flags(flags, 0); 
+                set_flags(flags, 0);
             else if (ps_strcmp(argv[i], "--simple") == 0)
                 set_flags(flags, 1);
             else if (ps_strcmp(argv[i], "--medium") == 0)
@@ -43,7 +43,7 @@ void    flags_parser(int flags[], int argc, char *argv[])
                 set_flags(flags, 3);
             else if (ps_strcmp(argv[i], "--adaptive") == 0)
                 set_flags(flags, 4);
-            else 
+            else
                 print_error();
         }
         i++;

@@ -45,18 +45,18 @@ void    print_disorder(float disorder)
 
 void    print_strategy(int *flags, char *strategy)
 {
-    if (flags[1] == 1)
+    if (flags[4] == 1)
     {
-        printf_stderr("Simple / ");                   // O(n^2)
+		printf_stderr("Adaptive / ");
+    }else if (flags[1] == 1)
+    {
+		printf_stderr("Simple / ");
     }else if (flags[2] == 1)
     {
-        printf_stderr("Medium / ");                   // O(n sqrt 2)
-    }else if (flags[3] == 1)
-    {
-        printf_stderr("Complex / ");                  // O(n log 2)
+		printf_stderr("Medium / ");
     }else
     {
-        printf_stderr("Adaptive / ");
+		printf_stderr("Complex / ");
     }
     printf_stderr("%s", strategy);
 }

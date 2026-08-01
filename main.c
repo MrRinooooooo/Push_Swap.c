@@ -6,9 +6,7 @@ int main(int argc, char *argv[])
     int         *int_arr;
     t_list      *stack_a;
     t_list      *stack_b;
-    float       disorder;
     int         size;
-    t_count     count;
 
     stack_b = NULL;
     if (argc == 1)
@@ -17,13 +15,13 @@ int main(int argc, char *argv[])
     flags_parser(flags, argc, argv);
     int_arr = int_arr_parser(argc, argv, flags_num(flags));
     size = argc - flags_num(flags) - 1;
-    disorder = compute_disorder(int_arr, size);
     stack_a = list_arg_parser(int_arr, size);
-    init_counts(&count);
+	alg_selector(flags, int_arr, &stack_a, &stack_b, size);
+    //init_counts(&count);
     //simple_sort(&stack_a, &stack_b, &count);
-    exec_medium(&stack_a, &stack_b, size, &count);
-    print_bench(count, disorder, flags, "O(n^2)");
-    
+    //exec_medium(&stack_a, &stack_b, size, &count);
+    //print_bench(count, disorder, flags, "O(n^2)");
+
     //RICORDARSI DI SOSTITUIRE TUTTI I PRINTF!!!!!!!!!!!!!
     //RICORDASI FREE(INT_ARRAY) E FREE(stack)
     return(0);

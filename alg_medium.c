@@ -8,15 +8,13 @@
     int     a_size;
     int     b_size;*/
 
-void    exec_medium(t_list **stack_a, t_list **stack_b, int size, t_count *count)
+void    medium_sort(t_list **stack_a, t_list **stack_b, int size, t_count *count)
 {
     t_vars  vars;
-    int     i;
 
     init_vars(&vars, size);
     while (*stack_a != NULL)
     {
-        i = find_min_index_chunk(*stack_a, &vars);
         move_to_top_chunk(stack_a, &vars, count);
         pb(stack_b, stack_a, count);
         update_vars(&vars, size);

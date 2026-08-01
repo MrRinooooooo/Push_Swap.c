@@ -28,3 +28,13 @@ void    print_vars(t_vars *vars)
     printf("\nb_size =\t%d", vars->b_size);
     printf("\n");
 }
+
+void	print_flags(int *flags)
+{
+	printf("\nFlag [0] --BENCH	=  %d", flags[0]);
+	printf("\nFlag [1] --SIMPLE  	=  %d", flags[1]);
+    printf("\nFlag [2] --MEDIUM  	=  %d", flags[2]);
+    printf("\nFlag [3] --COMPLEX 	=  %d", flags[3]);
+    printf("\nFlag [4] --ADAPTIVE 	=  %d", flags[4]);
+    printf("\nFlag [5] --CUSTOM  	=  %d", flags[5]);
+}
