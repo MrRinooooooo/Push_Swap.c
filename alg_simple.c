@@ -7,28 +7,10 @@ void simple_sort(t_list **a, t_list **b, t_count *count)
     while (*a != NULL)
     {
         move_to_top(a, count);
-        pb(b, a, count);
+        pb(b, a, count, 1);
     }
     while (*b != NULL)
-        pa(a, b, count);
-}
-
-int is_sorted(t_list *stack)
-{
-    t_list *current;
-    
-    if (stack == NULL || stack->next == NULL)
-        return (1);
-
-    current = stack;
-    while (current->next != NULL)
-    {
-        if (current->value > current->next->value)
-            return (0);
-
-        current = current->next;
-    }
-    return (1);
+        pa(a, b, count, 1);
 }
 
 void move_to_top(t_list **a, t_count *count)
@@ -43,7 +25,7 @@ void move_to_top(t_list **a, t_count *count)
     {
         while (min_pos > 0)
         {
-            ra(a, count);
+            ra(a, count, 1);
             min_pos--;
         }
     }
@@ -52,7 +34,7 @@ void move_to_top(t_list **a, t_count *count)
         moves = size - min_pos;
         while (moves > 0)
         {
-            rra(a, count);
+            rra(a, count, 1);
             moves--;
         }
     }

@@ -32,7 +32,7 @@ void move_to_top_chunk(t_list **stack_a, t_vars *vars, t_count *count)
     {
         while (min_pos > 0)
         {
-            ra(stack_a, count);
+            ra(stack_a, count, 1);
             min_pos--;
         }
     }
@@ -41,7 +41,7 @@ void move_to_top_chunk(t_list **stack_a, t_vars *vars, t_count *count)
         moves = vars->a_size - min_pos;
         while (moves > 0)
         {
-            rra(stack_a, count);
+            rra(stack_a, count, 1);
             moves--;
         }
     }
@@ -81,7 +81,7 @@ void    move_to_top_b(t_list **b, t_vars *vars, t_count *count)
     {
         while (max_pos > 0)
         {
-            rb(b, count);
+            rb(b, count, 1);
             max_pos--;
         }
     }
@@ -90,7 +90,7 @@ void    move_to_top_b(t_list **b, t_vars *vars, t_count *count)
         moves = vars->b_size - max_pos;
         while (moves > 0)
         {
-            rrb(b, count);
+            rrb(b, count, 1);
             moves--;
         }
     }

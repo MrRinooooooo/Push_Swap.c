@@ -34,3 +34,21 @@ void	ps_lstdelfirst(t_list **lst)
 	*lst = (*lst)->next;
 	free(first);
 }
+
+int is_sorted(t_list *stack)
+{
+    t_list *current;
+    
+    if (stack == NULL || stack->next == NULL)
+        return (1);
+
+    current = stack;
+    while (current->next != NULL)
+    {
+        if (current->value > current->next->value)
+            return (0);
+
+        current = current->next;
+    }
+    return (1);
+}

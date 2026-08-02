@@ -16,13 +16,13 @@ void    medium_sort(t_list **stack_a, t_list **stack_b, int size, t_count *count
     while (*stack_a != NULL)
     {
         move_to_top_chunk(stack_a, &vars, count);
-        pb(stack_b, stack_a, count);
+        pb(stack_b, stack_a, count, 1);
         update_vars(&vars, size);
     }
     while (vars.b_size > 0)
     {
 	    move_to_top_b(stack_b, &vars, count);
-        pa(stack_a, stack_b, count);
+        pa(stack_a, stack_b, count, 1);
         vars.a_size++;
         vars.b_size--;
     }

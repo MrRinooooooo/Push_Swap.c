@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-void    rra(t_list **stack_a, t_count *count)
+void    rra(t_list **stack_a, t_count *count, int print)
 {
     t_list *last_a;
     t_list *com;
@@ -16,10 +16,11 @@ void    rra(t_list **stack_a, t_count *count)
     com->next = NULL;
     ps_lstadd_front(stack_a, last_a);
     count->rra++;
-    write(1, "rra\n", 4);
+    if (print == 1)
+        write(1, "rra\n", 4);
 }
 
-void    rrb(t_list **stack_b, t_count *count)
+void    rrb(t_list **stack_b, t_count *count, int print)
 {
     t_list *last_b;
     t_list *com;
@@ -34,6 +35,18 @@ void    rrb(t_list **stack_b, t_count *count)
     }
     com->next = NULL;
     ps_lstadd_front(stack_b, last_b);
-    count->rrb++;    
-    write(1, "rrb\n", 4);
+    count->rrb++;
+    if (print == 1)count->rrb++;
+        write(1, "rrb\n", 4);
+}
+
+void    rrr(t_list **stack_a, t_list **stack_b, t_count *count, int print)
+{
+    rra(stack_a, count, 0);
+    rrb(stack_b, count, 0);
+    count->rrb--;
+    count->rrb--;
+    count->rrr++;
+    if (print == 1)
+        write(1, "rrr\n", 4);
 }

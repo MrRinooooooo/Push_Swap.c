@@ -9,11 +9,11 @@ int    partition_a(t_list **a, t_list **b, int size, int pivot, t_count *count)
     {
         if ((*a)->rank < pivot)
         {
-            pb(b, a, count);
+            pb(b, a, count, 1);
             pushed++;
         }
         else
-            ra(a, count);
+            ra(a, count, 1);
         size--;
     }
     return (pushed);
@@ -28,11 +28,11 @@ int    partition_b(t_list **a, t_list **b, int size, int pivot, t_count *count)
     {
         if ((*b)->rank >= pivot)
         {
-            pa(a, b, count);
+            pa(a, b, count, 1);
             pushed++;
         }
         else
-            rb(b, count);
+            rb(b, count, 1);
         size--;
     }
     return (pushed);

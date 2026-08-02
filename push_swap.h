@@ -1,6 +1,10 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 12
+# endif
+
 typedef struct s_list
 {
 	int				value;
@@ -63,7 +67,6 @@ void	init_vars(t_vars *vars, int size);
 int		calculate_chunk(int size);
 // alg_simple.c
 void    simple_sort(t_list **a, t_list **b, t_count *count);
-int     is_sorted(t_list *stack);
 void    move_to_top(t_list **a, t_count *count);
 int     find_min_index(t_list *stack);
 int     stack_size(t_list *stack);
@@ -90,17 +93,21 @@ int     flags_num(int flags[]);
 t_list	*ps_lstnew(int value, int rank);
 void	ps_lstadd_front(t_list **lst, t_list *new);
 void	ps_lstdelfirst(t_list **lst);
+int     is_sorted(t_list *stack);
 // operations_push_swap.c
-void    sa(t_list **lst, t_count *count);
-void    sb(t_list **lst, t_count *count);
-void    pa(t_list **stack_a, t_list **stack_b, t_count *count);
-void    pb(t_list **stack_b, t_list **stack_a, t_count *count);
+void    sa(t_list **lst, t_count *count, int print);
+void    sb(t_list **lst, t_count *count, int print);
+void    ss(t_list **a, t_list **b, t_count *count, int print);
+void    pa(t_list **stack_a, t_list **stack_b, t_count *count, int print);
+void    pb(t_list **stack_b, t_list **stack_a, t_count *count, int print);
 // operations_reverse_rotate.c
-void    rra(t_list **stack_a, t_count *count);
-void    rrb(t_list **stack_b, t_count *count);
+void    rra(t_list **stack_a, t_count *count, int print);
+void    rrb(t_list **stack_b, t_count *count, int print);
+void    rrr(t_list **stack_a, t_list **stack_b, t_count *count, int print);
 // operations_rotate.c
-void    ra(t_list **stack_a, t_count *count);
-void    rb(t_list **stack_b, t_count *count);
+void    ra(t_list **stack_a, t_count *count, int print);
+void    rb(t_list **stack_b, t_count *count, int print);
+void    rr(t_list **stack_a, t_list **stack_b, t_count *count, int print);
 // parser.c
 int 	*int_arr_parser(int argc, char *argv[], int flags_n);
 void	assign_rank(int *arr, int *rank_arr, int size);
@@ -116,16 +123,18 @@ int     ft_putstr(char *s);
 int 	ps_strlen(char  *s1);
 int		ps_strcmp(const char *s1, const char *s2);
 int		atoi_safe(const char *str);
-// ------------------------------------------- BONUS
-/*
-// get_next_line.c
+// ==================== BONUS ==================== 
+// get_next_line_bonus.c
 char	*get_next_line(int fd);
-size_t	ft_strlen(const char *s);
+void    checker_ops(t_list **a, t_list **b, char *ops);
+void    checker(t_list **stack_a, t_list **stack_b);
 // get_next_line_utils.c
 int		ft_strchr(const char *s, int c);
 char	*ft_strdup(const char *str);
 char	*ft_strjoin(char *s1, char *s2);
 char	*ft_split(char *str);
 char	*get_ret_line(char *s);
-*/
 #endif
+// per MAKEFILE BONUS
+//cc -Wall -Werror -Wextra main_bonus.c strings_utils.c get_next_line_utils_bonus.c errors_checker.c
+//cc -Wall -Werror -Wextra main_bonus.c strings_utils.c get_next_line_utils_bonus.c errors_checker.c operations_push_swap.c operations_reverse_rotate.c operations_rotate.c list_utils.c parser.c
