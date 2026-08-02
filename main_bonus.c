@@ -2,7 +2,6 @@
 
 int main(int argc, char *argv[])
 {
-	//int     fd;
 	char        *line;
     int         *int_arr;
     t_list      *stack_a;
@@ -12,22 +11,18 @@ int main(int argc, char *argv[])
     stack_b = NULL;
     if (argc == 1)
         return (0);
-    //flags_parser(flags, argc, argv);
     int_arr = int_arr_parser(argc, argv, 0);
     size = argc - 1;
     stack_a = list_arg_parser(int_arr, size);
-
-
-	//fd = open("test_fd1.txt", O_RDONLY);
 	while ((line = get_next_line(0)) != NULL)
 	{
         checker_ops(&stack_a, &stack_b, line);
 		free(line);
 	}
     checker(&stack_a, &stack_b);
-    print_stack(stack_a);
-	//close(fd);
-    //FREEEEEEEEEEEEEEEEEEEEE
+    free(int_arr);
+    free_stack(&stack_a);
+    free_stack(&stack_b);
 	return (0);
 }
 
@@ -63,28 +58,30 @@ void    checker_ops(t_list **a, t_list **b, char *ops)
 {
     t_count count;
 
-    if (ps_strcmp(ops, "sa"))
+    if (ps_strcmp(ops, "sa\n") == 0)
         sa(a, &count, 0);
-    else if (ps_strcmp(ops, "sb"))
+    else if (ps_strcmp(ops, "sb\n") == 0)
         sb(b, &count, 0);
-    else if (ps_strcmp(ops, "ss"))
+    else if (ps_strcmp(ops, "ss\n") == 0)
         ss(a, b, &count, 0);
-    else if (ps_strcmp(ops, "pa"))
+    else if (ps_strcmp(ops, "pa\n") == 0)
         pa(a, b, &count, 0);
-    else if (ps_strcmp(ops, "pb"))
+    else if (ps_strcmp(ops, "pb\n") == 0)
         pb(b, a, &count, 0);
-    else if (ps_strcmp(ops, "rra"))
-        rra(a, &count, 0);
-    else if (ps_strcmp(ops, "rrb"))
+    else if (ps_strcmp(ops, "rra\n") == 0)
+        rra(a, &count, 1);
+    else if (ps_strcmp(ops, "rrb\n") == 0)
         rrb(b, &count, 0);
-    else if (ps_strcmp(ops, "rrr"))
+    else if (ps_strcmp(ops, "rrr\n") == 0)
         rrr(a, b, &count, 0);
-    else if (ps_strcmp(ops, "ra"))
+    else if (ps_strcmp(ops, "ra\n") == 0)
         ra(a, &count, 0);
-    else if (ps_strcmp(ops, "rb"))
-        rb(a, &count, 0);
-    else if (ps_strcmp(ops, "rr"))
+    else if (ps_strcmp(ops, "rb\n") == 0)
+        rb(b, &count, 0);
+    else if (ps_strcmp(ops, "rr\n") == 0)
         rr(a, b, &count, 0);
+    else
+        print_error();
 }
 
 void    checker(t_list **stack_a, t_list **stack_b)
