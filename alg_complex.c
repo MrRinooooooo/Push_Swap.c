@@ -19,7 +19,7 @@ int    partition_a(t_list **a, t_list **b, int size, int pivot, t_count *count)
     return (pushed);
 }
 
-void    partition_b(t_list **a, t_list **b, int size, int pivot, t_count *count)
+int    partition_b(t_list **a, t_list **b, int size, int pivot, t_count *count)
 {
     int pushed;
 
