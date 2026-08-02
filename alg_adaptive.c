@@ -22,13 +22,17 @@ void	alg_selector(int *flags, int *int_arr, t_list **stack_a, t_list **stack_b, 
 		medium_sort(stack_a, stack_b, size, &count);
 		strategy = "O(n sqrt n)";
 	}
-	/*else if (flags[3] == 1)
+	else if (flags[3] == 1)
 	{
 		complex_sort(stack_a, stack_b, size, &count);
 		strategy = "O(n log n)";
-	}*/
+	}
 	if (flags[0] == 1)
 		print_bench(count, disorder, flags, strategy);
+
+	printf("\n");
+	print_stack_rank(*stack_a);
+	print_stack_rank(*stack_b);
 }
 
 char	*adaptive_sort(float disorder, int *flags)
