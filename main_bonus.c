@@ -81,7 +81,11 @@ void    checker_ops(t_list **a, t_list **b, char *ops)
     else if (ps_strcmp(ops, "rr\n") == 0)
         rr(a, b, &count, 0);
     else
+    {
+        free_stack(a);
+        free_stack(b);
         print_error();
+    }
 }
 
 void    checker(t_list **stack_a, t_list **stack_b)

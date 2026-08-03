@@ -88,7 +88,7 @@ void    print_error();
 void    flags_set_zero(int flags[]);
 void    set_flags(int flags[], int i);
 void    flags_parser(int flags[], int argc, char *argv[]);
-int     flags_num(int flags[]);
+int     flags_num(int flags[], int *int_arr);
 // list_utils.c
 t_list	*ps_lstnew(int value, int rank);
 void	ps_lstadd_front(t_list **lst, t_list *new);

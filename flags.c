@@ -50,7 +50,7 @@ void    flags_parser(int flags[], int argc, char *argv[])
     }
 }
 
-int     flags_num(int flags[])
+int     flags_num(int flags[], int *int_arr)
 {
     int i;
     int flags_tot;
@@ -60,7 +60,10 @@ int     flags_num(int flags[])
     while (i < 6)
     {
         if (flags[i] != 0 && flags[i] != 1)
+        {
+            free(int_arr);
             print_error();
+        }
         flags_tot += flags[i];
         i++;
     }
