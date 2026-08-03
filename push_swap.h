@@ -57,7 +57,7 @@ typedef struct s_counters
 
 // alg_adaptive.c
 void	alg_selector(int *flags, int *arr, t_list **stack_a, t_list **stack_b);
-char	*adaptive_sort(float disorder, int *flags);
+char	*adaptive_sort(float disorder, int *flags, int size);
 // alg_complex.c
 int		partition_a(t_list **a, t_list **b, t_range *range, t_count *count);
 int		partition_b(t_list **a, t_list **b, t_range *range, t_count *count);
@@ -148,11 +148,11 @@ int		ft_putstr(char *s);
 // strings_utils.c
 int		ps_strlen(char *s1);
 int		ps_strcmp(const char *s1, const char *s2);
-int		atoi_safe(const char *str);
+int		atoi_safe(const char *str, int *arr);
 // ==================== BONUS ====================
 // get_next_line_bonus.c
 char	*get_next_line(int fd);
-void	checker_ops(t_list **a, t_list **b, char *ops, t_count count);
+int	checker_ops(t_list **a, t_list **b, char *ops, t_count count);
 void	checker(t_list **stack_a, t_list **stack_b);
 // get_next_line_utils.c
 int		ft_strchr(const char *s, int c);

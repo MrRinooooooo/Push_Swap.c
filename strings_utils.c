@@ -31,7 +31,7 @@ int	ps_strcmp(const char *s1, const char *s2)
 	return (diff);
 }
 
-int	atoi_safe(const char *str)
+int	atoi_safe(const char *str, int *arr)
 {
 	int		result;
 	int		sign;
@@ -45,7 +45,10 @@ int	atoi_safe(const char *str)
 		str++;
 	}
 	if (*str < '0' || *str > '9')
+	{
+		free(arr);
 		print_error();
+	}
 	while (*str >= '0' && *str <= '9')
 	{
 		digit = *str - '0';

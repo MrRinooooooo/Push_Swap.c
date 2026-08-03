@@ -16,7 +16,7 @@ int	*int_arr_parser(int argc, char *argv[], int flags_n)
 	}
 	while (i < arr_len)
 	{
-		arr[i] = atoi_safe(argv[flags_n + 1]);
+		arr[i] = atoi_safe(argv[flags_n + 1], arr);
 		i++;
 		flags_n++;
 	}

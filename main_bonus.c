@@ -17,15 +17,14 @@ int	main(int argc, char *argv[])
 	line = get_next_line(0);
 	while (line != NULL)
 	{
-		checker_ops(&stack_a, &stack_b, line, count);
+		if (checker_ops(&stack_a, &stack_b, line, count) == 1)
+			return (free(int_arr), free_stack(&stack_a),
+				free(line), free_stack(&stack_b), get_next_line(-1), 1);
 		free(line);
 		line = get_next_line(0);
 	}
-	checker(&stack_a, &stack_b);
-	free(int_arr);
-	free_stack(&stack_a);
-	free_stack(&stack_b);
-	return (0);
+	return (checker(&stack_a, &stack_b), free(int_arr),
+		print_error_free_stack(&stack_a, &stack_b), 0);
 }
 
 char	*get_next_line(int fd)
@@ -55,7 +54,7 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-void	checker_ops(t_list **a, t_list **b, char *ops, t_count count)
+int	checker_ops(t_list **a, t_list **b, char *ops, t_count count)
 {
 	if (ps_strcmp(ops, "sa\n") == 0)
 		sa(a, &count, 0);
@@ -80,7 +79,8 @@ void	checker_ops(t_list **a, t_list **b, char *ops, t_count count)
 	else if (ps_strcmp(ops, "rr\n") == 0)
 		rr(a, b, &count, 0);
 	else
-		print_error_free_stack(a, b);
+		return (1);
+	return (0);
 }
 
 void	checker(t_list **stack_a, t_list **stack_b)

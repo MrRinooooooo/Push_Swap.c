@@ -13,7 +13,7 @@ void	alg_selector(int *flags, int *arr, t_list **stack_a, t_list **stack_b)
 	if (flags[1] == 0 && flags[2] == 0 && flags[3] == 0)
 		flags[4] = 1;
 	if (flags[4] == 1)
-		strategy = adaptive_sort(disorder, flags);
+		strategy = adaptive_sort(disorder, flags, size);
 	if (flags[1] == 1)
 		strategy = simple_sort(stack_a, stack_b, &count);
 	else if (flags[2] == 1)
@@ -27,21 +27,21 @@ void	alg_selector(int *flags, int *arr, t_list **stack_a, t_list **stack_b)
 		print_bench(count, disorder, flags, strategy);
 }
 
-char	*adaptive_sort(float disorder, int *flags)
+char	*adaptive_sort(float disorder, int *flags, int size)
 {
-	if (disorder < 0.2)
+	if (disorder < 0.2 && size < 100)
 	{
 		flags[1] = 1;
 		return ("O(n^2)");
 	}
-	else if (disorder >= 0.2 && disorder < 0.5)
-	{
-		flags[2] = 1;
-		return ("O(n sqrt n)");
-	}
-	else
+	else if (size > 250)
 	{
 		flags[3] = 1;
 		return ("O(n log n)");
+	}
+	else
+	{
+		flags[2] = 1;
+		return ("O(n sqrt n)");
 	}
 }
