@@ -19,3 +19,10 @@ void	integer_error_checker(int sign, int result, int digit)
 			print_error();
 	}
 }
+
+void	print_error_free_stack(t_list **stack_a, t_list **stack_b)
+{
+	free_stack(stack_a);
+	free_stack(stack_b);
+	print_error();
+}

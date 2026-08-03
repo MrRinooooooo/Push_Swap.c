@@ -37,7 +37,7 @@ char	*ft_strdup(const char *str)
 
 	if (!str)
 		return (NULL);
-	len = ps_strlen((*char) str);
+	len = ps_strlen((char *) str);
 	dest = (char *)malloc(sizeof(char) * (len + 1));
 	if (!dest)
 		return (NULL);

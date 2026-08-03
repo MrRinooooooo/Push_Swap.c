@@ -6,18 +6,20 @@ int	main(int argc, char *argv[])
 	int			*int_arr;
 	t_list		*stack_a;
 	t_list		*stack_b;
-	int			size;
+	t_count		count;
 
+	init_counts(&count);
 	stack_b = NULL;
 	if (argc == 1)
 		return (0);
 	int_arr = int_arr_parser(argc, argv, 0);
-	size = argc - 1;
-	stack_a = list_arg_parser(int_arr, size);
-	while ((line = get_next_line(0)) != NULL)
+	stack_a = list_arg_parser(int_arr, (argc - 1));
+	line = get_next_line(0);
+	while (line != NULL)
 	{
-		checker_ops(&stack_a, &stack_b, line);
+		checker_ops(&stack_a, &stack_b, line, count);
 		free(line);
+		line = get_next_line(0);
 	}
 	checker(&stack_a, &stack_b);
 	free(int_arr);
@@ -53,10 +55,8 @@ char	*get_next_line(int fd)
 	return (line);
 }
 
-void	checker_ops(t_list **a, t_list **b, char *ops)
+void	checker_ops(t_list **a, t_list **b, char *ops, t_count count)
 {
-	t_count	count;
-
 	if (ps_strcmp(ops, "sa\n") == 0)
 		sa(a, &count, 0);
 	else if (ps_strcmp(ops, "sb\n") == 0)
@@ -80,11 +80,7 @@ void	checker_ops(t_list **a, t_list **b, char *ops)
 	else if (ps_strcmp(ops, "rr\n") == 0)
 		rr(a, b, &count, 0);
 	else
-	{
-		free_stack(a);
-		free_stack(b);
-		print_error();
-	}
+		print_error_free_stack(a, b);
 }
 
 void	checker(t_list **stack_a, t_list **stack_b)

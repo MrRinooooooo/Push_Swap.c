@@ -1,9 +1,9 @@
 #include "push_swap.h"
 
-void	simple_sort(t_list **a, t_list **b, t_count *count)
+char	*simple_sort(t_list **a, t_list **b, t_count *count)
 {
 	if (is_sorted(*a))
-		return ;
+		return ("O(n^2)");
 	while (*a != NULL)
 	{
 		move_to_top(a, count);
@@ -11,6 +11,7 @@ void	simple_sort(t_list **a, t_list **b, t_count *count)
 	}
 	while (*b != NULL)
 		pa(a, b, count, 1);
+	return ("O(n^2)");
 }
 
 void	move_to_top(t_list **a, t_count *count)
@@ -62,19 +63,4 @@ int	find_min_index(t_list *stack)
 		}
 	}
 	return (min_pos);
-}
-
-int	stack_size(t_list *stack)
-{
-	int		size;
-	t_list	*current;
-
-	size = 0;
-	current = stack;
-	while (current != NULL)
-	{
-		size++;
-		current = current->next;
-	}
-	return (size);
 }
