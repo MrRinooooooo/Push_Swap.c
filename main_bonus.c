@@ -23,8 +23,8 @@ int	main(int argc, char *argv[])
 		free(line);
 		line = get_next_line(0);
 	}
-	return (checker(&stack_a, &stack_b), free(int_arr),
-		print_error_free_stack(&stack_a, &stack_b), 0);
+	return (free(int_arr), free_stack(&stack_a), free_stack(&stack_b),
+		checker(&stack_a, &stack_b), 0);
 }
 
 char	*get_next_line(int fd)
