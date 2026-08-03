@@ -36,7 +36,7 @@ void    rrb(t_list **stack_b, t_count *count, int print)
     com->next = NULL;
     ps_lstadd_front(stack_b, last_b);
     count->rrb++;
-    if (print == 1)count->rrb++;
+    if (print == 1)
         write(1, "rrb\n", 4);
 }
 

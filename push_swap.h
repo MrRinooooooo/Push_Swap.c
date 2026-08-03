@@ -22,6 +22,14 @@ typedef struct s_alg_vars
     int     b_size;
 }					t_vars;
 
+typedef struct s_range
+{
+    int     size;
+    int     min;
+    int     max;
+    int     pivot;
+}					t_range;
+
 typedef struct s_counters
 {
 	int     sa;
@@ -50,11 +58,13 @@ typedef struct s_counters
 void	alg_selector(int *flags, int *int_arr, t_list **stack_a, t_list **stack_b, int size);
 char	*adaptive_sort(float disorder, int *flags);
 // alg_complex.c
-int     partition_a(t_list **a, t_list **b, int size, int pivot, t_count *count);
-int     partition_b(t_list **a, t_list **b, int size, int pivot, t_count *count);
-void    sort_a(t_list **a, t_list **b, int size, int min, int max, t_count *count);
-void    sort_b(t_list **a, t_list **b, int size, int min, int max, t_count *count);
+int     partition_a(t_list **a, t_list **b, t_range *range, t_count *count);
+int     partition_b(t_list **a, t_list **b, t_range *range, t_count *count);
+void    sort_a(t_list **a, t_list **b, t_range *range, t_count *count);
+void    sort_b(t_list **a, t_list **b, t_range *range, t_count *count);
 void    complex_sort(t_list **a, t_list **b, int size, t_count *count);
+int     is_range_sorted_a(t_list *a, int size);
+int     is_range_sorted_b(t_list *b, int size);
 // alg_medium_utils.c
 int     find_min_index_chunk(t_list *stack, t_vars *vars);
 void    move_to_top_chunk(t_list **stack_a, t_vars *vars, t_count *count);
