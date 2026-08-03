@@ -27,3 +27,27 @@ int	is_range_sorted_a(t_list *a, int size)
 	}
 	return (1);
 }
+
+void	damn_norm(t_range *next, int size, int min, int max)
+{
+	next->size = size;
+	next->min = min;
+	next->max = max;
+}
+
+void    damn_norm2(t_list **a, t_list **b, t_count *count)
+{
+    if ((*b)->rank < (*b)->next->rank)
+		sb(b, count, 1);
+	pa(a, b, count, 1);
+	pa(a, b, count, 1);
+}
+
+void    damn_norm3(t_list **a, t_list **b, t_range *range, t_count *count)
+{
+	int		remaining;
+
+    remaining = range->size;
+	while (remaining-- > 0)
+		pa(a, b, count, 1);
+}

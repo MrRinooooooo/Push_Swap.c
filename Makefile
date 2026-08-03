@@ -22,7 +22,8 @@ SRCS		= alg_adaptive.c \
 			  parser.c \
 			  printf_stderr.c \
 			  strings_utils.c \
-			  alg_complex_utils.c
+			  alg_complex_utils.c \
+			  alg_complex_partition.c
 
 #alg_medium.c 
 			   

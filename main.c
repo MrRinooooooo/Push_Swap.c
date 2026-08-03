@@ -18,6 +18,7 @@ int	main(int argc, char *argv[])
 	size = argc - flags_num(flags, int_arr) - 1;
 	stack_a = list_arg_parser(int_arr, size);
 	alg_selector(flags, int_arr, &stack_a, &stack_b);
+	print_stack_rank(stack_a);
 	free_stack(&stack_a);
 	free_stack(&stack_b);
 	free(int_arr);

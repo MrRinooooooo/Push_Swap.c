@@ -65,9 +65,18 @@ int     partition_b(t_list **a, t_list **b, t_range *range, t_count *count);
 void    sort_a(t_list **a, t_list **b, t_range *range, t_count *count);
 void    sort_b(t_list **a, t_list **b, t_range *range, t_count *count);
 void    complex_sort(t_list **a, t_list **b, int size, t_count *count);
+// alg_complex_utils.c
 int     is_range_sorted_a(t_list *a, int size);
 int     is_range_sorted_b(t_list *b, int size);
-void	damn_norm(t_range *range, t_range *next, int pushed, int pivot);
+void	damn_norm(t_range *next, int size, int min, int max);
+void    damn_norm2(t_list **a, t_list **b, t_count *count);
+void    damn_norm3(t_list **a, t_list **b, t_range *range, t_count *count);
+// alg_complex_partition.c
+void	scan_partition_a(t_list **a, t_list **b, t_range *range, t_count *count);
+void	undo_partition_a(t_list **a, t_count *count, int rotates);
+void	scan_partition_b(t_list **a, t_list **b, t_range *range, t_count *count);
+void	undo_partition_b(t_list **b, t_count *count, int rotates);
+
 // alg_medium_utils.c
 int		find_min_index_chunk(t_list *stack, t_vars *vars);
 void	move_to_top_chunk(t_list **stack_a, t_vars *vars, t_count *count);
