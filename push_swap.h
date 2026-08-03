@@ -28,6 +28,8 @@ typedef struct s_range
     int min;
     int max;
     int pivot;
+	int pushed;
+	int rotates;
 }					t_range;
 
 typedef struct s_counters
@@ -65,6 +67,7 @@ void    sort_b(t_list **a, t_list **b, t_range *range, t_count *count);
 void    complex_sort(t_list **a, t_list **b, int size, t_count *count);
 int     is_range_sorted_a(t_list *a, int size);
 int     is_range_sorted_b(t_list *b, int size);
+void	damn_norm(t_range *range, t_range *next, int pushed, int pivot);
 // alg_medium_utils.c
 int		find_min_index_chunk(t_list *stack, t_vars *vars);
 void	move_to_top_chunk(t_list **stack_a, t_vars *vars, t_count *count);
