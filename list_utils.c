@@ -50,3 +50,18 @@ int	is_sorted(t_list *stack)
 	}
 	return (1);
 }
+
+int	stack_size(t_list *stack)
+{
+	int		size;
+	t_list	*current;
+
+	size = 0;
+	current = stack;
+	while (current != NULL)
+	{
+		size++;
+		current = current->next;
+	}
+	return (size);
+}

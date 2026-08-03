@@ -57,7 +57,7 @@ typedef struct s_counters
 # include <stdio.h>
 
 // alg_adaptive.c
-void	alg_selector(int *flags, int *int_arr, t_list **stack_a, t_list **stack_b, int size);
+void	alg_selector(int *flags, int *arr, t_list **stack_a, t_list **stack_b);
 char	*adaptive_sort(float disorder, int *flags);
 // alg_complex.c
 int     partition_a(t_list **a, t_list **b, t_range *range, t_count *count);
@@ -75,14 +75,13 @@ int		find_max_index(t_list *stack);
 void	move_to_top_b(t_list **b, t_vars *vars, t_count *count);
 void	update_vars(t_vars *vars, int size);
 // alg_medium.c
-void	medium_sort(t_list **stack_a, t_list **stack_b, int size, t_count *count);
+char	*medium_sort(t_list **stack_a, t_list **stack_b, int size, t_count *count);
 void	init_vars(t_vars *vars, int size);
 int		calculate_chunk(int size);
 // alg_simple.c
-void	simple_sort(t_list **a, t_list **b, t_count *count);
+char	*simple_sort(t_list **a, t_list **b, t_count *count);
 void	move_to_top(t_list **a, t_count *count);
 int		find_min_index(t_list *stack);
-int		stack_size(t_list *stack);
 // bench.c
 void	print_bench(t_count count, float disorder, int *flags, char *strategy);
 void	print_disorder(float disorder);
@@ -98,6 +97,7 @@ float	compute_disorder(int array[], int arraylen);
 // errors_checker.c
 void	print_error(void);
 void    integer_error_checker(int sign, int result, int digit);
+void	print_error_free_stack(t_list **stack_a, t_list **stack_b);
 // flags.c
 void	flags_set_zero(int flags[]);
 void	set_flags(int flags[], int i);
@@ -108,6 +108,7 @@ t_list	*ps_lstnew(int value, int rank);
 void	ps_lstadd_front(t_list **lst, t_list *new);
 void	ps_lstdelfirst(t_list **lst);
 int		is_sorted(t_list *stack);
+int		stack_size(t_list *stack);
 // operations_push_swap.c
 void	sa(t_list **lst, t_count *count, int print);
 void	sb(t_list **lst, t_count *count, int print);
@@ -140,7 +141,7 @@ int		atoi_safe(const char *str);
 // ==================== BONUS ==================== 
 // get_next_line_bonus.c
 char	*get_next_line(int fd);
-void	checker_ops(t_list **a, t_list **b, char *ops);
+void	checker_ops(t_list **a, t_list **b, char *ops, t_count count);
 void	checker(t_list **stack_a, t_list **stack_b);
 // get_next_line_utils.c
 int		ft_strchr(const char *s, int c);
@@ -150,5 +151,5 @@ char	*ft_split(char *str);
 char	*get_ret_line(char *s);
 #endif
 // per MAKEFILE BONUS
-//cc -Wall -Werror -Wextra main_bonus.c strings_utils.c get_next_line_utils_bonus.c errors_checker.c
-//cc -Wall -Werror -Wextra main_bonus.c strings_utils.c get_next_line_utils_bonus.c errors_checker.c operations_push_swap.c operations_reverse_rotate.c operations_rotate.c list_utils.c parser.c
+//
+//cc -Wall -Werror -Wextra main_bonus.c strings_utils.c get_next_line_utils_bonus.c errors_checker.c operations_push_swap.c operations_reverse_rotate.c operations_rotate.c list_utils.c parser.c bench.c printf_stderr.c 

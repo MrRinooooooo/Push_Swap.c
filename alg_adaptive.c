@@ -1,27 +1,23 @@
 #include "push_swap.h"
 
-void	alg_selector(int *flags, int *int_arr, t_list **stack_a, t_list **stack_b, int size)
+void	alg_selector(int *flags, int *arr, t_list **stack_a, t_list **stack_b)
 {
 	char		*strategy;
 	float		disorder;
 	t_count		count;
+	int			size;
 
+	size = stack_size(*stack_a);
 	init_counts(&count);
-	disorder = compute_disorder(int_arr, size);
+	disorder = compute_disorder(arr, size);
 	if (flags[1] == 0 && flags[2] == 0 && flags[3] == 0)
 		flags[4] = 1;
 	if (flags[4] == 1)
 		strategy = adaptive_sort(disorder, flags);
 	if (flags[1] == 1)
-	{
-		simple_sort(stack_a, stack_b, &count);
-		strategy = "O(n^2)";
-	}
+		strategy = simple_sort(stack_a, stack_b, &count);
 	else if (flags[2] == 1)
-	{
-		medium_sort(stack_a, stack_b, size, &count);
-		strategy = "O(n sqrt n)";
-	}
+		strategy = medium_sort(stack_a, stack_b, size, &count);
 	else if (flags[3] == 1)
 	{
 		complex_sort(stack_a, stack_b, size, &count);
@@ -29,11 +25,6 @@ void	alg_selector(int *flags, int *int_arr, t_list **stack_a, t_list **stack_b, 
 	}
 	if (flags[0] == 1)
 		print_bench(count, disorder, flags, strategy);
-
-	//DEBUG
-	printf("\n");
-	print_stack_rank(*stack_a);
-	print_stack_rank(*stack_b);
 }
 
 char	*adaptive_sort(float disorder, int *flags)

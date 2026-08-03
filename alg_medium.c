@@ -6,7 +6,7 @@
 	int		chunk_to_push;
 	int		a_size;
 	int		b_size;*/
-void	medium_sort(t_list **stack_a, t_list **stack_b,
+char	*medium_sort(t_list **stack_a, t_list **stack_b,
 	int size, t_count *count)
 {
 	t_vars	vars;
@@ -25,6 +25,7 @@ void	medium_sort(t_list **stack_a, t_list **stack_b,
 		vars.a_size++;
 		vars.b_size--;
 	}
+	return ("O(n sqrt n)");
 }
 
 void	init_vars(t_vars *vars, int size)
