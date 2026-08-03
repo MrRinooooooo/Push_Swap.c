@@ -1,6 +1,6 @@
 #include "push_swap.h"
 
-int printf_stderr(const char *s, ...)
+int	printf_stderr(const char *s, ...)
 {
 	va_list			args;
 	int				ret;

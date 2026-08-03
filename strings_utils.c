@@ -1,18 +1,18 @@
 #include "push_swap.h"
 
-int ps_strlen(char  *s1)
+int	ps_strlen(char	*s1)
 {
-    int i;
+	int	i;
 
-    i = 0;
-    if(!s1)
-        return (0);
-    while (s1[i])
-        i++;
-    return (i);
+	i = 0;
+	if (!s1)
+		return (0);
+	while (s1[i])
+		i++;
+	return (i);
 }
 
-int ps_strcmp(const char *s1, const char *s2)
+int	ps_strcmp(const char *s1, const char *s2)
 {
 	int	i;
 	int	diff;
@@ -40,25 +40,16 @@ int	atoi_safe(const char *str)
 	result = 0;
 	sign = 1;
 	if (*str == '-')
-    {
+	{
 		sign = -1;
-	    str++;
-    }
+		str++;
+	}
 	if (*str < '0' || *str > '9')
 		print_error();
 	while (*str >= '0' && *str <= '9')
 	{
 		digit = *str - '0';
-		if (sign == 1)
-		{
-			if (result > (INT_MAX - digit) / 10)
-				print_error();
-		}
-		else
-		{
-			if ((unsigned int)result > ((unsigned int)INT_MAX + 1 - digit) / 10)
-				print_error();
-		}
+		integer_error_checker(sign, result, digit);
 		result = result * 10 + digit;
 		str++;
 	}

@@ -26,7 +26,7 @@ void	ps_lstadd_front(t_list **lst, t_list *new)
 
 void	ps_lstdelfirst(t_list **lst)
 {
-	t_list *first;
+	t_list	*first;
 
 	if (!lst || !*lst)
 		return ;
@@ -35,20 +35,18 @@ void	ps_lstdelfirst(t_list **lst)
 	free(first);
 }
 
-int is_sorted(t_list *stack)
+int	is_sorted(t_list *stack)
 {
-    t_list *current;
-    
-    if (stack == NULL || stack->next == NULL)
-        return (1);
+	t_list	*current;
 
-    current = stack;
-    while (current->next != NULL)
-    {
-        if (current->value > current->next->value)
-            return (0);
-
-        current = current->next;
-    }
-    return (1);
+	if (stack == NULL || stack->next == NULL)
+		return (1);
+	current = stack;
+	while (current->next != NULL)
+	{
+		if (current->value > current->next->value)
+			return (0);
+		current = current->next;
+	}
+	return (1);
 }

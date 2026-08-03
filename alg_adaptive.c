@@ -2,14 +2,14 @@
 
 void	alg_selector(int *flags, int *int_arr, t_list **stack_a, t_list **stack_b, int size)
 {
-	char 		*strategy;
-	float       disorder;
-	t_count     count;
+	char		*strategy;
+	float		disorder;
+	t_count		count;
 
 	init_counts(&count);
 	disorder = compute_disorder(int_arr, size);
 	if (flags[1] == 0 && flags[2] == 0 && flags[3] == 0)
-    	flags[4] = 1;
+		flags[4] = 1;
 	if (flags[4] == 1)
 		strategy = adaptive_sort(disorder, flags);
 	if (flags[1] == 1)
