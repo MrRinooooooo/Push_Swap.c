@@ -2,7 +2,7 @@
 
 void	scan_partition_a(t_list **a, t_list **b, t_range *range, t_count *count)
 {
-	int remaining;
+	int	remaining;
 
 	remaining = range->size;
 	range->pushed = 0;
@@ -11,23 +11,23 @@ void	scan_partition_a(t_list **a, t_list **b, t_range *range, t_count *count)
 	{
 		if ((*a)->rank < range->pivot)
 		{
-			pb(b, a, count, 1); //meta bassa, spinge il num in B
+			pb(b, a, count, 1);
 			range->pushed++;
 		}
 		else
 		{
-			ra(a, count, 1); //meta alta, lo ruoto in fondo ad A
+			ra(a, count, 1);
 			range->rotates++;
 		}
 		remaining--;
 	}
 }
 
-void undo_partition_a(t_list **a, t_count *count, int rotates)
+void	undo_partition_a(t_list **a, t_count *count, int rotates)
 {
 	while (rotates > 0)
 	{
-		rra(a, count,1); //sposta l'ultimo elemento in testa
+		rra(a, count, 1);
 		rotates--;
 	}
 }

@@ -35,19 +35,19 @@ void	damn_norm(t_range *next, int size, int min, int max)
 	next->max = max;
 }
 
-void    damn_norm2(t_list **a, t_list **b, t_count *count)
+void	damn_norm2(t_list **a, t_list **b, t_count *count)
 {
-    if ((*b)->rank < (*b)->next->rank)
+	if ((*b)->rank < (*b)->next->rank)
 		sb(b, count, 1);
 	pa(a, b, count, 1);
 	pa(a, b, count, 1);
 }
 
-void    damn_norm3(t_list **a, t_list **b, t_range *range, t_count *count)
+void	damn_norm3(t_list **a, t_list **b, t_range *range, t_count *count)
 {
-	int		remaining;
+	int	remaining;
 
-    remaining = range->size;
+	remaining = range->size;
 	while (remaining-- > 0)
 		pa(a, b, count, 1);
 }

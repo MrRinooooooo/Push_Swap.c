@@ -1,5 +1,5 @@
 #include "push_swap.h"
-// compute disorder
+
 float	compute_disorder(int array[], int arraylen)
 {
 	int		mistakes;

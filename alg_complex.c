@@ -1,12 +1,12 @@
 #include "push_swap.h"
 
-int partition_a(t_list **a, t_list **b, t_range *range, t_count *count)
+int	partition_a(t_list **a, t_list **b, t_range *range, t_count *count)
 {
-	int total_stack_a;
-	int remaining;
+	int	total_stack_a;
+	int	remaining;
 
-	total_stack_a = stack_size(*a);//misura tutti gli elementi di A
-	scan_partition_a(a, b, range, count);//scansione e smistamento
+	total_stack_a = stack_size(*a);
+	scan_partition_a(a, b, range, count);
 	remaining = range->size - range->pushed - range->rotates;
 	if (total_stack_a > remaining)
 		undo_partition_a(a, count, range->rotates);
@@ -64,12 +64,12 @@ void	sort_b(t_list **a, t_list **b, t_range *range, t_count *count)
 		return ;
 	if (is_range_sorted_b(*b, range->size))
 	{
-        damn_norm3(a, b, range, count);
+		damn_norm3(a, b, range, count);
 		return ;
 	}
 	if (range->size == 2)
 	{
-        damn_norm2(a, b, count);
+		damn_norm2(a, b, count);
 		return ;
 	}
 	pivot = range->min + range->size / 2;
