@@ -15,7 +15,7 @@ void	alg_selector(int *flags, int *int_arr, t_list **stack_a, t_list **stack_b, 
 	if (flags[1] == 1)
 	{
 		simple_sort(stack_a, stack_b, &count);
-		strategy = "O(n^n)";
+		strategy = "O(n^2)";
 	}
 	else if (flags[2] == 1)
 	{
@@ -30,6 +30,7 @@ void	alg_selector(int *flags, int *int_arr, t_list **stack_a, t_list **stack_b, 
 	if (flags[0] == 1)
 		print_bench(count, disorder, flags, strategy);
 
+	//DEBUG
 	printf("\n");
 	print_stack_rank(*stack_a);
 	print_stack_rank(*stack_b);
